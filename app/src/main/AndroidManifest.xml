@@ -16,9 +16,11 @@
         android:theme="@style/Theme.PixabayPhotoViewer"
         tools:targetApi="31">
         <activity
-            android:name=".presentation.register.RegisterActivity"
+            android:name=".presentation.home.HomeActivity"
             android:exported="false" />
-        <!-- Login Activity -->
+        <activity
+            android:name=".presentation.register.RegisterActivity"
+            android:exported="false" /> <!-- Login Activity -->
         <activity
             android:name=".presentation.login.LoginActivity"
             android:exported="true">

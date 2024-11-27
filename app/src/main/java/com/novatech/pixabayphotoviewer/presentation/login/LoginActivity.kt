@@ -3,13 +3,10 @@ package com.novatech.pixabayphotoviewer.presentation.login
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
-import androidx.activity.enableEdgeToEdge
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
-import com.novatech.pixabayphotoviewer.R
 import com.novatech.pixabayphotoviewer.databinding.ActivityLoginBinding
+import com.novatech.pixabayphotoviewer.presentation.home.HomeActivity
 import com.novatech.pixabayphotoviewer.presentation.register.RegisterActivity
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -30,8 +27,11 @@ class LoginActivity : AppCompatActivity() {
 
         viewModel.loginResult.observe(this) { result ->
             result!!.onSuccess {
-                // Navigate to Home
-                Toast.makeText(this, "user logged in success", Toast.LENGTH_LONG).show()
+                // Navigate to HomeActivity
+                val intent = Intent(this, HomeActivity::class.java)
+                startActivity(intent)
+                finish()
+
             }.onFailure {
                 // Show error
                 Toast.makeText(this, it.localizedMessage, Toast.LENGTH_LONG).show()

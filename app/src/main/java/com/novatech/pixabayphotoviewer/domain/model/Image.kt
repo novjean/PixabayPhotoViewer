@@ -7,7 +7,7 @@ data class Image(
     val userName: String,
     val imageSize: Int,
     val imageType: String,
-//    val tags: List<String>,
+    val tags: List<String>,
     val views: Int,
     val likes: Int,
     val comments: Int,

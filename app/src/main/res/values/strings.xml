@@ -1,3 +1,14 @@
 <resources>
     <string name="app_name">PixabayPhotoViewer</string>
+
+    <string name="image_size">Image Size: %d bytes</string>
+    <string name="image_type">Image Type: %s</string>
+    <string name="image_tags">Tags: %s</string>
+    <string name="uploader_name">Uploaded by: %s</string>
+    <string name="views">Views: %d</string>
+    <string name="likes">Likes: %d</string>
+    <string name="comments">Comments: %d</string>
+    <string name="favorites">Favorites: %d</string>
+    <string name="downloads">Downloads: %d</string>
+    <string name="image_detail">Image Detail</string>
 </resources>

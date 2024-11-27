@@ -1,7 +1,7 @@
 package com.novatech.pixabayphotoviewer.presentation.home
 
+import android.content.Intent
 import android.os.Bundle
-import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.novatech.pixabayphotoviewer.databinding.ActivityHomeBinding
 import com.novatech.pixabayphotoviewer.domain.model.Image
+import com.novatech.pixabayphotoviewer.presentation.image_detail.ImageDetailActivity
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
@@ -65,10 +66,9 @@ class HomeActivity : AppCompatActivity() {
     }
 
     private fun navigateToImageDetail(image: Image) {
-        Toast.makeText(this, "Navigating to Image Detail", Toast.LENGTH_LONG).show()
-//        val intent = Intent(this, ImageDetailActivity::class.java).apply {
-//            putExtra("IMAGE", image)
-//        }
-//        startActivity(intent)
+        val intent = Intent(this, ImageDetailActivity::class.java).apply {
+            putExtra("IMAGE", image) // Pass the Image object to the detail screen
+        }
+        startActivity(intent)
     }
 }

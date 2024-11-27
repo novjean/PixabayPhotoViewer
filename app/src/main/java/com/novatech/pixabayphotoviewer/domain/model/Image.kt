@@ -1,5 +1,9 @@
 package com.novatech.pixabayphotoviewer.domain.model
 
+import android.os.Parcelable
+import kotlinx.parcelize.Parcelize
+
+@Parcelize
 data class Image(
     val id: Int,
     val previewURL: String, // Thumbnail URL
@@ -13,4 +17,4 @@ data class Image(
     val comments: Int,
     val favorites: Int,
     val downloads: Int
-)
+) : Parcelable

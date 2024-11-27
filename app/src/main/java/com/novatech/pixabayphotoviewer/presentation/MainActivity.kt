@@ -1,10 +1,11 @@
-package com.novatech.pixabayphotoviewer
+package com.novatech.pixabayphotoviewer.presentation
 
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.novatech.pixabayphotoviewer.R
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

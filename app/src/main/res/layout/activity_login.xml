@@ -17,6 +17,7 @@
             android:id="@+id/emailInputLayout"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginTop="48dp"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toTopOf="@id/passwordInputLayout"
             app:layout_constraintStart_toStartOf="parent"
@@ -58,8 +59,8 @@
         <com.google.android.material.button.MaterialButton
             android:id="@+id/loginButton"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
+            android:layout_height="56dp"
+            android:layout_marginTop="48dp"
             android:text="Login"
             android:elevation="8dp"
             android:onClick="@{() -> viewModel.login()}"

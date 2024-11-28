@@ -40,16 +40,19 @@ class LoginViewModel @Inject constructor(
     fun login() {
         val emailValue = email.value.orEmpty()
         val passwordValue = password.value.orEmpty()
+        var isErrorFound = false
 
         if (!isValidEmail(emailValue)) {
             emailError.value = "Invalid email address"
-            return
+            isErrorFound = true
         }
 
         if (!isValidPassword(passwordValue)) {
             passwordError.value = "Password must be 6-12 characters"
-            return
+            isErrorFound = true
         }
+
+        if(isErrorFound) return
 
         isLoading.value = true
         emailError.value = null

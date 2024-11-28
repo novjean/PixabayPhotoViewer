@@ -1,61 +1,94 @@
-<?xml version="1.0" encoding="utf-8"?>
-<layout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
+
     <data>
         <variable
             name="viewModel"
             type="com.novatech.pixabayphotoviewer.presentation.login.LoginViewModel" />
     </data>
 
-    
-
-    <LinearLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:gravity="center"
         android:padding="16dp">
 
-        <EditText
-            android:layout_width="match_parent"
+        <!-- Email Field -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/emailInputLayout"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:hint="Email"
-            android:text="@={viewModel.email}" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/passwordInputLayout"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintVertical_chainStyle="packed"
+            app:layout_constraintVertical_bias="0.5">
 
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Password"
-            android:text="@={viewModel.password}"
-            android:inputType="textPassword" />
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/emailEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Email"
+                android:text="@={viewModel.email}" />
+        </com.google.android.material.textfield.TextInputLayout>
 
-        <Button
-            android:id="@+id/btnLogin"
-            android:layout_width="wrap_content"
+        <!-- Password Field -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/passwordInputLayout"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/emailInputLayout"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/loginButton"
+            android:layout_marginVertical="16dp">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/passwordEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Password"
+                android:inputType="textPassword"
+                android:text="@={viewModel.password}" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+
+        <!-- Login Button -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/loginButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
             android:text="Login"
-            android:onClick="@{() -> viewModel.login()}" />
+            android:elevation="8dp"
+            android:onClick="@{() -> viewModel.login()}"
+            app:layout_constraintTop_toBottomOf="@id/passwordInputLayout"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
 
-        <Button
+        <!-- Register Button -->
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/btnRegister"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Register"
+            app:layout_constraintTop_toBottomOf="@id/loginButton"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <!-- Progress Bar -->
+        <ProgressBar
+            android:id="@+id/progressBar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Register" />
-    </LinearLayout>
+            android:visibility="gone"
+            app:layout_constraintTop_toTopOf="@id/loginButton"
+            app:layout_constraintBottom_toBottomOf="@id/loginButton"
+            app:layout_constraintStart_toEndOf="@id/loginButton"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginStart="16dp" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
-
-
-
-
-
-<!--<androidx.constraintlayout.widget.ConstraintLayout -->
-<!--    xmlns:android="http://schemas.android.com/apk/res/android"-->
-<!--    xmlns:app="http://schemas.android.com/apk/res-auto"-->
-<!--    xmlns:tools="http://schemas.android.com/tools"-->
-<!--    android:id="@+id/main"-->
-<!--    android:layout_width="match_parent"-->
-<!--    android:layout_height="match_parent"-->
-<!--    tools:context=".presentation.login.LoginActivity">-->
-
-<!--</androidx.constraintlayout.widget.ConstraintLayout>-->

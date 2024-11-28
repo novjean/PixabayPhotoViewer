@@ -10,8 +10,13 @@
         <item name="android:colorBackground">@color/black</item>
         <item name="android:textColorPrimary">@color/white</item>
         <item name="android:textColorSecondary">@color/light_gray</item>
+
+        <!--  Home card     -->
+        <item name="colorSurface">@color/surface</item>
+        <item name="colorOnSurface">@color/onSurface</item>
     </style>
 
+    <!--  Image Detail Screen  -->
     <style name="Theme.PixabayPhotoViewer.NoActionBar" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
         <!-- Disable default action bar -->
         <item name="windowActionBar">false</item>

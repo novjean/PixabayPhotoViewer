@@ -34,6 +34,7 @@ class ImageAdapter(private val onImageClicked: (Image) -> Unit) :
                 Glide.with(root.context)
                     .load(image.previewURL)
                     .into(imageThumbnail)
+
                 imageUploader.text = image.userName
 
                 root.setOnClickListener { onImageClicked(image) }

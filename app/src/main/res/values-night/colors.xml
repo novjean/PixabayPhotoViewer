@@ -7,4 +7,9 @@
     <color name="black">#000000</color>
     <color name="gray">#D3D3D3</color>
     <color name="light_gray">#A9A9A9</color>
+
+    <color name="surface">#121212</color>
+    <color name="onSurface">#FFFFFF</color>
+    <color name="shadow">#444444</color>
+
 </resources>

@@ -72,6 +72,7 @@ dependencies {
     // Glide
     implementation("com.github.bumptech.glide:glide:4.11.0")
     testImplementation("junit:junit:4.12")
+    testImplementation("junit:junit:4.12")
     kapt("com.github.bumptech.glide:compiler:4.11.0")
 
     // Paging
@@ -103,7 +104,6 @@ dependencies {
     testImplementation("junit:junit:4.12")
     testImplementation("androidx.test.ext:junit:1.1.5")
     testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.7.3")
-    testImplementation("org.slf4j:slf4j-simple:1.7.36")
 
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)

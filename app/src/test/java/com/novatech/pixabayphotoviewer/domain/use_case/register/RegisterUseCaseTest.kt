@@ -1,9 +1,9 @@
 package com.novatech.pixabayphotoviewer.domain.use_case.register
-
 import com.google.common.truth.Truth.assertThat
 import com.novatech.pixabayphotoviewer.domain.model.User
 import com.novatech.pixabayphotoviewer.domain.repository.UserRepository
 import io.mockk.coEvery
+import io.mockk.coVerify
 import io.mockk.mockk
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.runTest
@@ -13,32 +13,41 @@ import org.junit.Test
 @ExperimentalCoroutinesApi
 class RegisterUseCaseTest {
 
-    private lateinit var useCase: RegisterUseCase
-    private val repository: UserRepository = mockk()
+    private lateinit var registerUseCase: RegisterUseCase
+    private val userRepository: UserRepository = mockk()
 
     @Before
     fun setUp() {
-        useCase = RegisterUseCase(repository)
-
-        // Add a default response for repository.login
-        coEvery { repository.register(any()) } returns Result.failure(Exception("Invalid registration"))
+        registerUseCase = RegisterUseCase(userRepository)
     }
 
     @Test
-    fun `registration succeeds when valid inputs are provided`() = runTest {
-        val mockUser = User(email = "test2@test.com", password = "password456", age = 20)
-        coEvery { repository.register(mockUser) } returns Result.success(Unit)
+    fun `register succeeds when valid user is provided`() = runTest {
+        // Arrange
+        val validUser = User(email = "newuser@test.com", password = "password123", age = 25)
+        coEvery { userRepository.register(validUser) } returns Result.success(Unit)
 
-        val result = useCase(User("test2@test.com", "password456", 20))
+        // Act
+        val result = registerUseCase(validUser)
 
+        // Assert
         assertThat(result.isSuccess).isTrue()
+        coVerify(exactly = 1) { userRepository.register(validUser) }
     }
 
     @Test
-    fun `registration fails when age is below 18`() = runTest {
-        val result = useCase(User("test@test.com", "password123", 17))
+    fun `register fails when repository returns an error`() = runTest {
+        // Arrange
+        val invalidUser = User(email = "newuser@test.com", password = "password123", age = 16)
+        val errorMessage = "Age must be 18 or older"
+        coEvery { userRepository.register(invalidUser) } returns Result.failure(Exception(errorMessage))
 
+        // Act
+        val result = registerUseCase(invalidUser)
+
+        // Assert
         assertThat(result.isFailure).isTrue()
-        assertThat(result.exceptionOrNull()).isInstanceOf(Exception::class.java)
+        assertThat(result.exceptionOrNull()?.message).isEqualTo(errorMessage)
+        coVerify(exactly = 1) { userRepository.register(invalidUser) }
     }
 }

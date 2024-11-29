@@ -97,4 +97,8 @@ dependencies {
     implementation("androidx.hilt:hilt-work:1.0.0")
     kapt("androidx.hilt:hilt-compiler:1.0.0")
 
+    // Encrypted Shared Preferences
+    implementation("androidx.security:security-crypto:1.1.0-alpha06")
+
+
 }

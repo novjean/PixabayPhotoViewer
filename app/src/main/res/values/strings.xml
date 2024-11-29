@@ -12,4 +12,5 @@
     <string name="downloads">Downloads: %d</string>
     <string name="image_detail">Image Detail</string>
     <string name="image_thumbnail">Image Thumbnail</string>
+    <string name="divider_placeholder">---</string>
 </resources>

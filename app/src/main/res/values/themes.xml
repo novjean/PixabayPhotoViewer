@@ -11,14 +11,11 @@
         <item name="android:textColorPrimary">@color/black</item>
         <item name="android:textColorSecondary">@color/gray</item>
 
-        <!--  Home card     -->
-        <item name="colorSurface">@color/surface</item>
-        <item name="colorOnSurface">@color/onSurface</item>
     </style>
 
     <style name="Theme.PixabayPhotoViewer" parent="Base.Theme.PixabayPhotoViewer" />
 
-    <!--  Image Detail Screen   -->
+    <!-- Home and  Image Detail Screen  -->
     <style name="Theme.PixabayPhotoViewer.NoActionBar" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
         <!-- Disable default action bar -->
         <item name="windowActionBar">false</item>
@@ -32,5 +29,20 @@
         <item name="android:colorBackground">@color/white</item>
         <item name="android:textColorPrimary">@color/black</item>
         <item name="android:textColorSecondary">@color/gray</item>
+
+        <!--  Home card     -->
+        <item name="colorSurface">@color/surface</item>
+        <item name="colorOnSurface">@color/onSurface</item>
+
+        <item name="popupTheme">@style/PopupTheme</item>
     </style>
+
+    <style name="PopupTheme" parent="ThemeOverlay.MaterialComponents.Toolbar.Primary">
+        <item name="popupMenuBackground">@color/surface</item>
+        <item name="android:textColor">@color/onSurface</item>
+        <item name="android:dividerHeight">1dp</item>
+        <item name="android:divider">@color/dividerColor</item>
+    </style>
+
+
 </resources>

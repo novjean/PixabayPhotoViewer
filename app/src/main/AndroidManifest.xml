@@ -21,6 +21,7 @@
             android:exported="false" />
         <activity
             android:name=".presentation.home.HomeActivity"
+            android:theme="@style/Theme.PixabayPhotoViewer.NoActionBar"
             android:exported="false" />
         <activity
             android:name=".presentation.register.RegisterActivity"

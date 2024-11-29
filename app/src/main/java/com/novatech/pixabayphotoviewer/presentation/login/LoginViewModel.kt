@@ -1,16 +1,20 @@
 package com.novatech.pixabayphotoviewer.presentation.login
 
+import android.content.Context
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.novatech.pixabayphotoviewer.domain.model.User
 import com.novatech.pixabayphotoviewer.domain.use_case.login.LoginUseCase
+import com.novatech.pixabayphotoviewer.util.SecurePreferences
 import dagger.hilt.android.lifecycle.HiltViewModel
+import dagger.hilt.android.qualifiers.ApplicationContext
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
 class LoginViewModel @Inject constructor(
+    @ApplicationContext private val context: Context,
     private val loginUseCase: LoginUseCase
 ) : ViewModel() {
     val email = MutableLiveData<String>()
@@ -61,6 +65,11 @@ class LoginViewModel @Inject constructor(
         viewModelScope.launch {
             loginResult.value = loginUseCase(email.value.orEmpty(), password.value.orEmpty())
             isLoading.value = false
+
+            if(loginResult.value!!.isSuccess){
+                SecurePreferences.saveEmail(context, emailValue) // Save email securely
+            }
+
         }
     }
 

@@ -1,17 +1,21 @@
 package com.novatech.pixabayphotoviewer.presentation.register
 
+import android.content.Context
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.novatech.pixabayphotoviewer.domain.model.User
 import com.novatech.pixabayphotoviewer.domain.use_case.register.RegisterUseCase
+import com.novatech.pixabayphotoviewer.util.SecurePreferences
 import dagger.hilt.android.lifecycle.HiltViewModel
+import dagger.hilt.android.qualifiers.ApplicationContext
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 
 @HiltViewModel
 class RegisterViewModel @Inject constructor(
+    @ApplicationContext private val context: Context,
     private val registerUseCase: RegisterUseCase
 ) : ViewModel() {
     val email = MutableLiveData<String>()
@@ -84,6 +88,8 @@ class RegisterViewModel @Inject constructor(
                     )
                 )
                 isLoading.value = false
+
+                SecurePreferences.saveEmail(context, emailValue)
             }
         } else {
             registerResult.value = Result.failure(Exception("Invalid age input"))

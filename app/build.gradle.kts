@@ -58,12 +58,6 @@ dependencies {
     implementation(libs.material)
     implementation(libs.androidx.activity)
     implementation(libs.androidx.constraintlayout)
-    testImplementation(libs.junit)
-    androidTestImplementation(libs.androidx.junit)
-    androidTestImplementation(libs.androidx.espresso.core)
-
-    // solves pending intent requires flag issue
-    implementation ("androidx.work:work-runtime:2.7.1")
 
     // Lifecycle
     implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.6.1")
@@ -77,6 +71,7 @@ dependencies {
 
     // Glide
     implementation("com.github.bumptech.glide:glide:4.11.0")
+    testImplementation("junit:junit:4.12")
     kapt("com.github.bumptech.glide:compiler:4.11.0")
 
     // Paging
@@ -100,5 +95,23 @@ dependencies {
     // Encrypted Shared Preferences
     implementation("androidx.security:security-crypto:1.1.0-alpha06")
 
+    // solves pending intent requires flag issue
+    implementation ("androidx.work:work-runtime:2.7.1")
+
+    // Testing
+    testImplementation(libs.junit)
+    testImplementation("junit:junit:4.12")
+    testImplementation("androidx.test.ext:junit:1.1.5")
+    testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.7.3")
+    testImplementation("org.slf4j:slf4j-simple:1.7.36")
+
+    androidTestImplementation(libs.androidx.junit)
+    androidTestImplementation(libs.androidx.espresso.core)
+
+    // MockK for mocking
+    testImplementation("io.mockk:mockk:1.13.5")
+
+    // Google Truth for assertions
+    testImplementation("com.google.truth:truth:1.1.5")
 
 }

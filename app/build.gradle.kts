@@ -71,8 +71,6 @@ dependencies {
 
     // Glide
     implementation("com.github.bumptech.glide:glide:4.11.0")
-    testImplementation("junit:junit:4.12")
-    testImplementation("junit:junit:4.12")
     kapt("com.github.bumptech.glide:compiler:4.11.0")
 
     // Paging

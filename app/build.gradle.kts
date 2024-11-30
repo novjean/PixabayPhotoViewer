@@ -141,4 +141,6 @@ dependencies {
     androidTestImplementation("androidx.test.espresso:espresso-contrib:3.5.1") // For RecyclerView actions
     androidTestImplementation("androidx.test.uiautomator:uiautomator:2.2.0")
 
+    // MockWebServer for mocking network responses
+    androidTestImplementation("com.squareup.okhttp3:mockwebserver:4.10.0")
 }

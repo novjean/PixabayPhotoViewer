@@ -82,8 +82,8 @@ dependencies {
     implementation("androidx.lifecycle:lifecycle-extensions:2.2.0")
 
     // Coroutines
-    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.5.1")
-    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.5.1")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.3")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3")
 
     // Glide
     implementation("com.github.bumptech.glide:glide:4.11.0")
@@ -121,7 +121,7 @@ dependencies {
 
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
-    androidTestImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.8.1")
+    androidTestImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.7.3")
     androidTestImplementation("org.mockito.kotlin:mockito-kotlin:3.2.0")
     implementation("org.mockito:mockito-android:5.14.2")
 
@@ -135,6 +135,7 @@ dependencies {
     // Test helpers for LiveData
     androidTestImplementation("android.arch.core:core-testing:1.1.1")
 
+    androidTestImplementation("org.robolectric:robolectric:4.10")
 //    androidTestImplementation("org.robolectric:robolectric:4.10")
 
 }

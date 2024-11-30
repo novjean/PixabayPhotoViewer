@@ -5,7 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.novatech.pixabayphotoviewer.domain.model.User
-import com.novatech.pixabayphotoviewer.domain.use_case.login.LoginUseCase
+import com.novatech.pixabayphotoviewer.domain.use_case.login.LoginUseCaseWrapper
 import com.novatech.pixabayphotoviewer.util.SecurePreferences
 import dagger.hilt.android.lifecycle.HiltViewModel
 import dagger.hilt.android.qualifiers.ApplicationContext
@@ -15,7 +15,7 @@ import javax.inject.Inject
 @HiltViewModel
 class LoginViewModel @Inject constructor(
     @ApplicationContext private val context: Context,
-    private val loginUseCase: LoginUseCase
+    private val loginUseCaseWrapper: LoginUseCaseWrapper
 ) : ViewModel() {
     val email = MutableLiveData<String>()
     val password = MutableLiveData<String>()
@@ -27,18 +27,18 @@ class LoginViewModel @Inject constructor(
 
     init {
         // Observe email input and clear error if valid
-        email.observeForever { emailValue ->
-            if (isValidEmail(emailValue)) {
-                emailError.value = null
-            }
-        }
-
-        // Observe password input and clear error if valid
-        password.observeForever { passwordValue ->
-            if (isValidPassword(passwordValue)) {
-                passwordError.value = null
-            }
-        }
+//        email.observeForever { emailValue ->
+//            if (isValidEmail(emailValue)) {
+//                emailError.value = null
+//            }
+//        }
+//
+//        // Observe password input and clear error if valid
+//        password.observeForever { passwordValue ->
+//            if (isValidPassword(passwordValue)) {
+//                passwordError.value = null
+//            }
+//        }
     }
 
     fun login() {
@@ -63,7 +63,7 @@ class LoginViewModel @Inject constructor(
         passwordError.value = null
 
         viewModelScope.launch {
-            loginResult.value = loginUseCase(email.value.orEmpty(), password.value.orEmpty())
+            loginResult.value = loginUseCaseWrapper.execute(email.value.orEmpty(), password.value.orEmpty())
             isLoading.value = false
 
             if(loginResult.value!!.isSuccess){

@@ -87,6 +87,7 @@ dependencies {
 
     // Glide
     implementation("com.github.bumptech.glide:glide:4.11.0")
+    testImplementation("junit:junit:4.12")
     kapt("com.github.bumptech.glide:compiler:4.11.0")
 
     // Paging
@@ -115,7 +116,7 @@ dependencies {
 
     // Testing
     testImplementation(libs.junit)
-    testImplementation("junit:junit:4.12")
+    testImplementation("junit:junit:4.13.2")
     testImplementation("androidx.test.ext:junit:1.1.5")
     testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.7.3")
 
@@ -135,6 +136,9 @@ dependencies {
     // Test helpers for LiveData
     androidTestImplementation("android.arch.core:core-testing:1.1.1")
 
-//    androidTestImplementation("org.robolectric:robolectric:4.10")
+    androidTestImplementation("androidx.test:rules:1.5.0")
+    androidTestImplementation("androidx.test.espresso:espresso-intents:3.5.1")
+    androidTestImplementation("androidx.test.espresso:espresso-contrib:3.5.1") // For RecyclerView actions
+    androidTestImplementation("androidx.test.uiautomator:uiautomator:2.2.0")
 
 }

@@ -63,13 +63,15 @@ class LoginViewModel @Inject constructor(
         passwordError.value = null
 
         viewModelScope.launch {
-            loginResult.value = loginUseCase(email.value.orEmpty(), password.value.orEmpty())
-            isLoading.value = false
+            val value = loginUseCase(email.value.orEmpty(), password.value.orEmpty())
 
-            if(loginResult.value!!.isSuccess){
+            if(value.isSuccess){
+                loginResult.value = value
                 SecurePreferences.saveEmail(context, emailValue) // Save email securely
+            } else {
+                loginResult.value = Result.failure(Exception("Invalid login credentials"))
             }
-
+            isLoading.value = false
         }
     }
 

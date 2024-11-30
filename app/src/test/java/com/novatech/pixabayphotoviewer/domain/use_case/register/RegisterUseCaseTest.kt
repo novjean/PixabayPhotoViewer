@@ -23,11 +23,9 @@ class RegisterUseCaseTest {
 
     @Test
     fun `register succeeds when valid user is provided`() = runTest {
-        // Arrange
         val validUser = User(email = "newuser@test.com", password = "password123", age = 25)
         coEvery { userRepository.register(validUser) } returns Result.success(Unit)
 
-        // Act
         val result = registerUseCase(validUser)
 
         // Assert
@@ -37,7 +35,6 @@ class RegisterUseCaseTest {
 
     @Test
     fun `register fails when repository returns an error`() = runTest {
-        // Arrange
         val invalidUser = User(email = "newuser@test.com", password = "password123", age = 16)
         val errorMessage = "Age must be 18 or older"
         coEvery { userRepository.register(invalidUser) } returns Result.failure(Exception(errorMessage))

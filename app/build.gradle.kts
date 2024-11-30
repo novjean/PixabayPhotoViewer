@@ -10,6 +10,22 @@ android {
     namespace = "com.novatech.pixabayphotoviewer"
     compileSdk = 35
 
+//    packaging {
+//        resources {
+//            excludes.addAll(
+//                listOf(
+//                    "META-INF/LICENSE.md",
+//                    "META-INF/LICENSE-notice.md",
+//                    "META-INF/DEPENDENCIES",
+//                    "META-INF/NOTICE",
+//                    "META-INF/NOTICE.txt",
+//                    "META-INF/LICENSE",
+//                    "META-INF/LICENSE.txt"
+//                )
+//            )
+//        }
+//    }
+
     defaultConfig {
         applicationId = "com.novatech.pixabayphotoviewer"
         minSdk = 24
@@ -105,11 +121,20 @@ dependencies {
 
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+    androidTestImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.8.1")
+    androidTestImplementation("org.mockito.kotlin:mockito-kotlin:3.2.0")
+    implementation("org.mockito:mockito-android:5.14.2")
 
     // MockK for mocking
     testImplementation("io.mockk:mockk:1.13.5")
 
     // Google Truth for assertions
     testImplementation("com.google.truth:truth:1.1.5")
+    androidTestImplementation("com.google.truth:truth:1.1.5")
+
+    // Test helpers for LiveData
+    androidTestImplementation("android.arch.core:core-testing:1.1.1")
+
+//    androidTestImplementation("org.robolectric:robolectric:4.10")
 
 }

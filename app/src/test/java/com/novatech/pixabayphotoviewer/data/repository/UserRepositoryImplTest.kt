@@ -24,7 +24,6 @@ class UserRepositoryImplTest {
 
     @Test
     fun `login succeeds when valid credentials are provided`() = runTest {
-        // Arrange
         val mockUser = User(email = "test@test.com", password = "password123")
         coEvery { localDataSource.mockLogin(mockUser.email, mockUser.password) } returns Result.success(mockUser)
 
@@ -38,7 +37,6 @@ class UserRepositoryImplTest {
 
     @Test
     fun `login fails when invalid credentials are provided`() = runTest {
-        // Arrange
         val invalidEmail = "invalid@test.com"
         val invalidPassword = "wrongpassword"
         coEvery { localDataSource.mockLogin(invalidEmail, invalidPassword) } returns Result.failure(Exception("Invalid login credentials"))
@@ -54,7 +52,6 @@ class UserRepositoryImplTest {
 
     @Test
     fun `register succeeds when age is valid`() = runTest {
-        // Arrange
         val validUser = User(email = "newuser@test.com", password = "newpassword", age = 25)
         coEvery { localDataSource.mockRegister(validUser) } returns Result.success(Unit)
 
@@ -68,7 +65,6 @@ class UserRepositoryImplTest {
 
     @Test
     fun `register fails when age is invalid`() = runTest {
-        // Arrange
         val invalidUser = User(email = "newuser@test.com", password = "newpassword", age = 16)
         coEvery { localDataSource.mockRegister(invalidUser) } returns Result.failure(Exception("Age must be between 18 and 99"))
 

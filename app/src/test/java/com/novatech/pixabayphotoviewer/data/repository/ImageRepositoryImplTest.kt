@@ -24,7 +24,6 @@ class ImageRepositoryImplTest {
 
     @Test
     fun `fetchImages returns success when remoteDataSource returns a valid list`() = runTest {
-        // Arrange
         val mockImages = listOf(
             Image(
                 id = 1,
@@ -53,7 +52,6 @@ class ImageRepositoryImplTest {
 
     @Test
     fun `fetchImages returns failure when remoteDataSource throws an exception`() = runTest {
-        // Arrange
         val exception = Exception("Network error")
         coEvery { remoteDataSource.fetchImages(page = 1) } returns Result.failure(exception)
 
@@ -67,7 +65,6 @@ class ImageRepositoryImplTest {
 
     @Test
     fun `fetchImages delegates call to remoteDataSource with correct parameters`() = runTest {
-        // Arrange
         val page = 2
         coEvery { remoteDataSource.fetchImages(page = page) } returns Result.success(emptyList())
 

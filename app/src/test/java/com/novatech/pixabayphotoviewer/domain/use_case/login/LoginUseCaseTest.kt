@@ -24,13 +24,11 @@ class LoginUseCaseTest {
 
     @Test
     fun `login succeeds when valid credentials are provided`() = runTest {
-        // Arrange
         val email = "test@test.com"
         val password = "password123"
         val mockUser = User(email = email, password = password)
         coEvery { userRepository.login(email, password) } returns Result.success(mockUser)
 
-        // Act
         val result = loginUseCase(email, password)
 
         // Assert

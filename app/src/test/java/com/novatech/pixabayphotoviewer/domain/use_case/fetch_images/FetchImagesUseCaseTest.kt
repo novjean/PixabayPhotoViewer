@@ -24,7 +24,6 @@ class FetchImagesUseCaseTest {
 
     @Test
     fun `fetchImages succeeds when repository returns a list of images`() = runTest {
-        // Arrange
         val page = 1
         val mockImages = listOf(
             Image(
@@ -44,7 +43,6 @@ class FetchImagesUseCaseTest {
         )
         coEvery { repository.fetchImages(page) } returns Result.success(mockImages)
 
-        // Act
         val result = fetchImagesUseCase(page)
 
         // Assert
@@ -55,12 +53,10 @@ class FetchImagesUseCaseTest {
 
     @Test
     fun `fetchImages fails when repository returns an error`() = runTest {
-        // Arrange
         val page = 2
         val errorMessage = "Network error"
         coEvery { repository.fetchImages(page) } returns Result.failure(Exception(errorMessage))
 
-        // Act
         val result = fetchImagesUseCase(page)
 
         // Assert

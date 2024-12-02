@@ -12,6 +12,9 @@ import kotlinx.coroutines.test.runTest
 import org.junit.Before
 import org.junit.Test
 
+/**
+ * Test class for verifying the functionality of [RemoteDataSource].
+ */
 @ExperimentalCoroutinesApi
 class RemoteDataSourceTest {
 

@@ -12,7 +12,10 @@ import dagger.hilt.android.qualifiers.ApplicationContext
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
-
+/**
+ * Handles user registration functionality, including validation and interaction with the use case layer.
+ * Manages UI state for the registration screen.
+ */
 @HiltViewModel
 class RegisterViewModel @Inject constructor(
     @ApplicationContext private val context: Context,
@@ -46,6 +49,10 @@ class RegisterViewModel @Inject constructor(
         }
     }
 
+    /**
+     * Initiates the registration process with the provided user details.
+     * Validates inputs and updates UI state.
+     */
     fun register() {
         val emailValue = email.value.orEmpty()
         val passwordValue = password.value.orEmpty()

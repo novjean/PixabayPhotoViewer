@@ -67,6 +67,11 @@ class HomeActivity : AppCompatActivity() {
         }
     }
 
+    /**
+     * Initializes the RecyclerView for displaying image data.
+     *
+     * Sets up the layout manager, adapter, and scroll listener for pagination.
+     */
     private fun setupRecyclerView() {
         binding.recyclerView.apply {
             layoutManager = LinearLayoutManager(this@HomeActivity)
@@ -91,12 +96,24 @@ class HomeActivity : AppCompatActivity() {
         }
     }
 
+    /**
+     * Observes ViewModel LiveData for image data and updates the UI accordingly.
+     *
+     * Ensures the UI reacts to changes in the image list fetched from the ViewModel.
+     */
     private fun observeViewModel() {
         viewModel.images.observe(this) { images ->
             adapter.submitList(images)
         }
     }
 
+    /**
+     * Navigates to the Image Detail screen for a selected image.
+     *
+     * @param image The [Image] object containing the details to display.
+     *
+     * Passes the image data to the Image Detail Activity using an Intent.
+     */
     private fun navigateToImageDetail(image: Image) {
         val intent = Intent(this, ImageDetailActivity::class.java).apply {
             // Pass the Image object to the detail screen
@@ -105,6 +122,11 @@ class HomeActivity : AppCompatActivity() {
         startActivity(intent)
     }
 
+    /**
+     * Logs out the current user and navigates back to the Login screen.
+     *
+     * Clears saved credentials and resets the navigation stack to prevent back navigation.
+     */
     private fun navigateToLogin() {
         val intent = Intent(this, LoginActivity::class.java)
         intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK

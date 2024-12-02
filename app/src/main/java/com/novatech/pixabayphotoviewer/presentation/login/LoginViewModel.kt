@@ -12,6 +12,10 @@ import dagger.hilt.android.qualifiers.ApplicationContext
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
+/**
+ * Handles user login functionality, including validation and interaction with the use case layer.
+ * Manages UI state for the login screen.
+ */
 @HiltViewModel
 class LoginViewModel @Inject constructor(
     @ApplicationContext private val context: Context,
@@ -41,7 +45,12 @@ class LoginViewModel @Inject constructor(
         }
     }
 
+    /**
+     * Initiates the login process with the provided email and password.
+     * Validates inputs and updates UI state accordingly.
+     */
     fun login() {
+        // Implementation...
         val emailValue = email.value.orEmpty()
         val passwordValue = password.value.orEmpty()
         var isErrorFound = false

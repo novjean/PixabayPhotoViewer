@@ -10,6 +10,10 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
+/**
+ * ViewModel for the Home screen.
+ * Fetches and manages a list of images for the home screen.
+ */
 @HiltViewModel
 class HomeViewModel @Inject constructor(
     private val fetchImagesUseCase: FetchImagesUseCase
@@ -19,6 +23,10 @@ class HomeViewModel @Inject constructor(
 
     private var currentPage = 1
 
+    /**
+     * Fetches a paginated list of images.
+     * Updates the UI state with the fetched data or an error message.
+     */
     fun loadImages() {
         viewModelScope.launch {
             val result = fetchImagesUseCase(currentPage)

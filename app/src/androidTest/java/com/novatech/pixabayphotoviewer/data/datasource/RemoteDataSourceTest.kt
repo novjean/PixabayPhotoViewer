@@ -14,6 +14,9 @@ import retrofit2.HttpException
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
+/**
+ * Test class for verifying the functionality of [RemoteDataSource].
+ */
 @RunWith(AndroidJUnit4::class)
 class RemoteDataSourceTest {
 
@@ -39,6 +42,9 @@ class RemoteDataSourceTest {
         remoteDataSource = RemoteDataSource(pixabayAPI)
     }
 
+    /**
+     * Tests successful image fetching from the API.
+     */
     @Test
     fun testFetchImages_success() = runBlocking {
         // When: Fetch images from the data source
@@ -54,6 +60,9 @@ class RemoteDataSourceTest {
         assertThat(images).hasSize(20)
     }
 
+    /**
+     * Tests failure scenarios when fetching images from the API.
+     */
     @Test
     fun testFetchImagesBadQuery_failure() = runBlocking {
         // When: Fetch images from the data source

@@ -7,6 +7,10 @@ import com.novatech.pixabayphotoviewer.domain.model.Image
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
+/**
+ * ViewModel for the Image Detail screen.
+ * Provides detailed information about a selected image.
+ */
 @HiltViewModel
 class ImageDetailViewModel @Inject constructor() : ViewModel() {
 

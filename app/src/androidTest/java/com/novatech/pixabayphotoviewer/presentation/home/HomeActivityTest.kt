@@ -9,6 +9,9 @@ import com.novatech.pixabayphotoviewer.R
 import org.junit.Rule
 import org.junit.Test
 
+/**
+ * Test class for the Home screen.
+ */
 class HomeActivityTest {
 
     @get:Rule
@@ -20,15 +23,4 @@ class HomeActivityTest {
         onView(withId(R.id.recyclerView))
             .check(matches(isDisplayed()))
     }
-
-//    @Test
-//    fun clickOnImageRow_navigatesToImageDetail() {
-//        // Perform click on the first item in the RecyclerView
-//        onView(withId(R.id.recyclerView))
-//            .perform(RecyclerViewActions.actionOnItemAtPosition<ImageAdapter.ImageViewHolder>(0, click()))
-//
-//        // Verify that the ImageDetail screen is displayed
-//        onView(withId(R.id.imageDetailView))
-//            .check(matches(isDisplayed()))
-//    }
 }

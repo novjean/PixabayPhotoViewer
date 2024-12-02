@@ -35,6 +35,11 @@ class LoginActivity : AppCompatActivity() {
         }
     }
 
+    /**
+     * Observes changes in ViewModel LiveData and updates the UI accordingly.
+     *
+     * Handles email and password validation errors, loading states, and login success/failure events.
+     */
     private fun observeViewModel() {
         viewModel.emailError.observe(this) { error ->
             binding.emailInputLayout.error = error
